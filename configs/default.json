@@ -1,0 +1,133 @@
+{
+  "app": {
+    "output_dir": "outputs/runs",
+    "allow_demo_fallback": true,
+    "allow_local_heavy_models": true
+  },
+  "comfyui": {
+    "base_url": "http://127.0.0.1:8188",
+    "enabled": true,
+    "input_subfolder": "diorama_forge",
+    "stage3_workflow": "workflows/comfy/stage3_style_api.json",
+    "stage35_workflow": "workflows/comfy/stage35_upscale_reconstruction_api.json",
+    "refine_workflow": "workflows/comfy/stage35_refine_api.json",
+    "output_node_id": "",
+    "timeout_seconds": 1800,
+    "poll_interval_seconds": 1.0
+  },
+  "remote_backend": {
+    "base_url": "http://127.0.0.1:9008",
+    "enabled": false,
+    "api_key_env": "DIORAMA_REMOTE_API_KEY",
+    "work_dir": "outputs/remote_backend/work",
+    "cleanup_after_response": true,
+    "timeout_seconds": 7200,
+    "execution_backend": "real",
+    "stage35_backend": "auto",
+    "stage4_backend": "demo"
+  },
+  "meshy_ai": {
+    "base_url": "https://api.meshy.ai",
+    "enabled": true,
+    "api_key_env": "MESHY_API_KEY",
+    "timeout_seconds": 900,
+    "poll_interval_seconds": 5.0,
+    "model_type": "standard",
+    "ai_model": "latest",
+    "should_texture": true,
+    "enable_pbr": false,
+    "should_remesh": true,
+    "target_polycount": 30000,
+    "target_formats": ["glb", "obj", "stl"],
+    "image_enhancement": true,
+    "remove_lighting": true,
+    "moderation": false,
+    "download_outputs": true
+  },
+  "product_pipeline": {
+    "seed": -1,
+    "steps": 12,
+    "guidance": 4.5,
+    "strength": 0.68,
+    "max_resolution": 512,
+    "demo_time_budget_seconds": 240,
+    "demo_min_free_vram_gb": 6.0,
+    "stage35_backend_mode": "demo",
+    "stage4_backend_mode": "meshy",
+    "stage5_backend_mode": "meshy",
+    "stage35_upscale_scale": 2.0,
+    "stage35_refinement_strength": 0.22,
+    "stage35_max_side": 1536,
+    "stage4_mesh_resolution": 96,
+    "stage4_max_parts": 12,
+    "stage5_width_mm": 120.0,
+    "stage5_relief_height_mm": 18.0,
+    "stage5_base_thickness_mm": 3.0,
+    "stage5_mesh_resolution": 96
+  },
+  "style_engine": {
+    "active": "auto",
+    "target": "comfyui_stage3_style",
+    "backend_mode": "comfyui",
+    "result_label": "Style Result",
+    "control_label": "Style Control",
+    "show_backend_selector": false,
+    "legacy_remote_visible": false
+  },
+  "models": {
+    "depth": {
+      "backend": "auto",
+      "model_id": "depth-anything/DA3-LARGE-1.1",
+      "fallback_model_id": "depth-anything/Depth-Anything-V2-Small-hf"
+    },
+    "sam": {
+      "backend": "auto",
+      "model_id": "facebook/sam2-hiera-base-plus",
+      "points_per_batch": 64,
+      "max_masks": 12
+    },
+    "flux": {
+      "backend": "auto",
+      "model_id": "black-forest-labs/FLUX.1-Depth-dev",
+      "local_path": "",
+      "torch_dtype": "bfloat16",
+      "quantization": "none",
+      "offload_strategy": "sequential",
+      "post_load_dtype": "float16",
+      "cpu_offload": true,
+      "enable_vae_tiling": true
+    },
+    "sdxl_depth_lightning": {
+      "backend": "auto",
+      "base_model_id": "stabilityai/stable-diffusion-xl-base-1.0",
+      "controlnet_model_id": "diffusers/controlnet-depth-sdxl-1.0",
+      "lora_model_id": "ByteDance/SDXL-Lightning",
+      "lora_weight_name": "sdxl_lightning_4step_lora.safetensors",
+      "base_local_path": "",
+      "controlnet_local_path": "",
+      "lora_local_path": "",
+      "torch_dtype": "float16",
+      "variant": "fp16",
+      "scheduler": "euler",
+      "controlnet_conditioning_scale": 0.85,
+      "lora_scale": 1.0,
+      "cpu_offload": false,
+      "enable_vae_tiling": true
+    },
+    "trellis": {
+      "backend": "auto",
+      "model_id": "microsoft/TRELLIS-image-large",
+      "local_path": ""
+    },
+    "ultrashape": {
+      "backend": "auto",
+      "model_id": "PKU-YuanGroup/UltraShape-1.0",
+      "local_path": ""
+    },
+    "print": {
+      "default_width_mm": 120.0,
+      "default_relief_height_mm": 18.0,
+      "default_base_thickness_mm": 3.0
+    }
+  }
+}

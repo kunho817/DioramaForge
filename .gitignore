@@ -1,0 +1,78 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+key/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+hf.txt
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node / desktop build outputs
+desktop/node_modules/
+desktop/dist/
+desktop/.vite/
+desktop/src-tauri/target/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Model checkpoints and local caches
+models/
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.gguf
+*.bin
+*.engine
+
+# Runtime outputs and generated experiment data
+outputs/
+runs/
+experiments/
+*.log
+*_stdout.log
+*_stderr.log
+flux_smoke_stdout.log
+flux_smoke_stderr.log
+gradio_stdout.log
+gradio_stderr.log
+gradio_*_stdout.log
+gradio_*_stderr.log
+
+# Local/private paper submission package
+제출서류/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.bak.*

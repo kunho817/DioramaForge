@@ -1,0 +1,22 @@
+{
+  "name": "diorama-forge",
+  "version": "0.1.0+codex.20260616010500",
+  "description": "Project-local Codex plugin for developing DioramaForge as a local-first image-to-diorama pipeline.",
+  "author": {
+    "name": "DioramaForge Project"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Diorama Forge",
+    "shortDescription": "Develop the local DioramaForge pipeline.",
+    "longDescription": "Diorama Forge provides project-specific guidance for the local-first Depth/SAM/FLUX/3D handoff pipeline.",
+    "developerName": "DioramaForge Project",
+    "category": "Developer Tools",
+    "capabilities": [
+      "local-pipeline-development",
+      "artifact-validation",
+      "desktop-gui-workflow"
+    ],
+    "defaultPrompt": "Use the DioramaForge local-first project workflow."
+  }
+}
